@@ -17,3 +17,8 @@ frontend/*.tsbuildinfo
 __pycache__/
 *.py[cod]
 .DS_Store
+
+blockchain/node_modules/
+blockchain/cache/
+blockchain/artifacts/
+blockchain/coverage/

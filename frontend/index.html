@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101827" />
+    <meta name="description" content="YNP Test Token - a local blockchain experimentation dashboard." />
+    <title>YNP | Yeti Nepal Protocol</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="YNP home">
+          <span class="brand-mark" aria-hidden="true"><span>Y</span></span>
+          <span><strong>YNP</strong><small>Yeti Nepal Protocol</small></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#home">Home</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#send">Send</a>
+          <a href="#about">About</a>
+          <button class="button button-small" id="nav-connect" type="button">Connect wallet</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="mountains" aria-hidden="true">
+          <span class="peak peak-one"></span><span class="peak peak-two"></span>
+          <span class="peak peak-three"></span><span class="snow-line"></span>
+        </div>
+        <div class="shell hero-grid">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">Himalayan blockchain experiment</span>
+            <h1>Inspired by the <em>Himalayas.</em><br />Designed for the digital future.</h1>
+            <p>YNP is a Nepali-inspired, local testnet token exploring transparent wallets, smart contracts and community-first technology.</p>
+            <div class="hero-actions">
+              <a class="button" href="#dashboard">Explore dashboard <span aria-hidden="true">→</span></a>
+              <a class="text-link" href="#about">Learn about YNP</a>
+            </div>
+          </div>
+          <div class="coin-stage reveal" aria-label="Decorative YNP token">
+            <div class="coin-orbit orbit-one"></div>
+            <div class="coin-orbit orbit-two"></div>
+            <div class="ynp-coin">
+              <span class="coin-summit"></span>
+              <strong>YNP</strong>
+              <small>TESTNET</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="token-strip shell" aria-label="Token overview">
+        <article><small>Token</small><strong>YNP Test Token</strong></article>
+        <article><small>Maximum supply</small><strong>21,000,000 YNP</strong></article>
+        <article><small>Network</small><strong id="network-chip"><span class="status-dot"></span> Local development</strong></article>
+      </section>
+
+      <section class="section shell" id="dashboard">
+        <div class="section-heading">
+          <div><span class="eyebrow">Wallet overview</span><h2>Your dashboard</h2></div>
+          <button class="button button-outline" id="connect-wallet" type="button">Connect MetaMask</button>
+        </div>
+
+        <div class="notice" id="wallet-notice" role="status" aria-live="polite">
+          Connect MetaMask to the local Hardhat network.
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span>Connected wallet</span>
+            <strong id="wallet-address">Not connected</strong>
+            <small id="wallet-subtext">MetaMask account</small>
+          </article>
+          <article class="stat-card gold">
+            <span>YNP balance</span>
+            <strong><span id="token-balance">—</span> <small>YNP</small></strong>
+            <small>Wallet balance</small>
+          </article>
+          <article class="stat-card">
+            <span>Total supply</span>
+            <strong><span id="total-supply">—</span> <small>YNP</small></strong>
+            <small>Fixed at deployment</small>
+          </article>
+          <article class="stat-card">
+            <span>Network status</span>
+            <strong id="network-status">Not connected</strong>
+            <small id="contract-address">Contract: not configured</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell transfer-grid" id="send">
+        <article class="panel transfer-panel">
+          <span class="eyebrow">Local transfer</span>
+          <h2>Send YNP</h2>
+          <p class="muted">Transfer test tokens only between wallets on the local network.</p>
+          <form id="send-form" novalidate>
+            <label for="recipient">Recipient address</label>
+            <input id="recipient" name="recipient" type="text" autocomplete="off" placeholder="0x..." required />
+            <div class="amount-row">
+              <label for="amount">Amount</label>
+              <button id="max-button" type="button">Use max</button>
+            </div>
+            <div class="input-with-token">
+              <input id="amount" name="amount" type="text" inputmode="decimal" placeholder="0.00" required />
+              <span>YNP</span>
+            </div>
+            <button class="button button-full" id="send-button" type="submit">Send test tokens</button>
+          </form>
+          <div class="toast-stack" id="send-message" aria-live="polite"></div>
+        </article>
+
+        <article class="panel history-panel">
+          <div class="panel-heading">
+            <div><span class="eyebrow">On-chain activity</span><h2>Transactions</h2></div>
+            <button class="icon-button" id="refresh-history" type="button" title="Refresh transactions" aria-label="Refresh transactions">↻</button>
+          </div>
+          <div class="history-table-wrap">
+            <table>
+              <thead><tr><th>Transfer</th><th>Amount</th><th>Transaction</th><th>Status</th></tr></thead>
+              <tbody id="transaction-history">
+                <tr><td colspan="4"><div class="empty-state">Connect MetaMask to load Transfer events.</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="about shell" id="about">
+        <div class="about-art" aria-hidden="true">
+          <div class="mandala"><span></span><span></span><span></span></div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">From Nepal, for research</span>
+          <h2>A Himalayan identity for an open digital future.</h2>
+          <p>YNP combines the symbolism of Nepal's mountains, Dhaka patterns and temple traditions with an experimental approach to blockchain engineering.</p>
+          <p>This MVP is designed for local testing only. YNP test tokens have no monetary value and do not represent investments, securities, real currency or a public token sale.</p>
+        </div>
+      </section>
+
+      <section class="roadmap shell" aria-label="Project roadmap">
+        <div class="section-heading"><div><span class="eyebrow">Development path</span><h2>Roadmap</h2></div></div>
+        <div class="roadmap-line">
+          <article class="active"><span>01</span><strong>Prototype</strong><small>Local smart contract and wallet dashboard</small></article>
+          <article><span>02</span><strong>Research</strong><small>Security, usability and token standards</small></article>
+          <article><span>03</span><strong>Community</strong><small>Educational workshops and feedback</small></article>
+          <article><span>04</span><strong>Review</strong><small>Qualified technical and legal assessment</small></article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"><span>Y</span></span>
+          <span><strong>YNP</strong><small>Yeti Nepal Protocol</small></span>
+        </div>
+        <p>Development and research prototype. YNP tokens are for local testing and have no monetary value.</p>
+        <small>© 2026 YNP · Not legal tender · No public sale</small>
+      </div>
+    </footer>
+
+    <script src="./config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
