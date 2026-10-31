@@ -12,7 +12,7 @@ YNP is an early-stage blockchain research and local testnet MVP inspired by Nepa
 
 ## Requirements
 
-- Node.js 18 or later
+- Node.js 20 or 22 LTS
 - npm
 - MetaMask browser extension
 - Python 3 only if using the optional backend folder
