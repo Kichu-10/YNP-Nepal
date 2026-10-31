@@ -156,8 +156,12 @@ a { color: inherit; text-decoration: none; }
 .toast-stack { margin-top: 12px; }
 .toast { padding: 11px 12px; border-radius: 5px; font-size: 12px; line-height: 1.5; background: rgba(183,44,61,.08); color: #efa0a9; overflow-wrap: anywhere; }
 .toast.success { background: rgba(105,197,138,.08); color: #a4deb9; }
+.toast.pending { background: rgba(217,164,65,.08); color: var(--gold); }
 .history-panel { min-width: 0; padding: 28px 28px 12px; }
 .history-panel .panel-heading { align-items: center; }
+.history-controls { min-height: 54px; display: grid; grid-template-columns: auto 180px 1fr; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--muted); font-size: 12px; }
+.history-controls select { height: 38px; border: 1px solid var(--border); border-radius: 5px; padding: 0 10px; background: var(--navy); color: var(--snow); }
+.history-controls span { justify-self: end; }
 .icon-button { width: 38px; height: 38px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--gold); cursor: pointer; }
 .history-table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
@@ -166,7 +170,25 @@ td { height: 64px; padding: 10px 8px; border-bottom: 1px solid var(--border); }
 .address { font-family: Consolas, monospace; }
 .tx-link { color: var(--gold); }
 .tx-status { color: var(--green); font-size: 11px; }
+.tx-status.failed { color: #efa0a9; }
+.tx-status.pending { color: var(--gold); }
+.tx-button { border: 0; border-bottom: 1px solid rgba(217,164,65,.35); padding: 0 0 2px; background: none; color: var(--gold); cursor: pointer; font-family: Consolas, monospace; }
+.history-pagination { min-height: 58px; display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--muted); font-size: 12px; }
+.history-pagination:empty { display: none; }
+.history-pagination .button { min-height: 36px; }
 .empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
+.loading-state { position: relative; color: var(--muted); }
+.loading-state::before { content: ""; width: 14px; height: 14px; display: inline-block; margin-right: 8px; border: 2px solid var(--border); border-top-color: var(--gold); border-radius: 50%; vertical-align: middle; animation: spin .7s linear infinite; }
+
+.transaction-dialog { width: min(620px, calc(100% - 32px)); border: 1px solid var(--border); border-radius: 8px; padding: 0; background: var(--navy-2); color: var(--snow); box-shadow: 0 30px 90px rgba(0,0,0,.55); }
+.transaction-dialog::backdrop { background: rgba(5,9,16,.78); backdrop-filter: blur(4px); }
+.transaction-dialog form { padding: 24px; }
+.dialog-heading { display: flex; align-items: center; justify-content: space-between; }
+.dialog-heading h2 { margin: 6px 0 18px; font-family: Georgia, serif; }
+.transaction-dialog dl { margin: 0; }
+.transaction-dialog dl div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 11px 0; border-top: 1px solid var(--border); }
+.transaction-dialog dt { color: var(--muted); font-size: 12px; }
+.transaction-dialog dd { margin: 0; overflow-wrap: anywhere; font-family: Consolas, monospace; font-size: 12px; }
 
 .about { margin-block: 100px; min-height: 420px; display: grid; grid-template-columns: 42% 58%; align-items: center; border: 1px solid var(--border); }
 .about-art { height: 100%; min-height: 420px; display: grid; place-items: center; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(183,44,61,.3), rgba(16,24,39,.9)); }
@@ -227,10 +249,16 @@ footer { border-top: 1px solid var(--border); background: #0b111d; }
   .section { padding-top: 72px; }
   .section-heading { align-items: flex-start; gap: 18px; flex-direction: column; }
   .transfer-grid { padding-top: 40px; }
+  .history-panel { padding-inline: 16px; }
+  .history-controls { grid-template-columns: 1fr; }
+  .history-controls span { justify-self: start; }
+  .history-table-wrap table { min-width: 620px; }
+  .history-pagination { flex-wrap: wrap; }
   .about { grid-template-columns: 1fr; }
   .about-art { min-height: 300px; }
   .about-copy { padding: 32px 24px; }
   .roadmap-line { grid-template-columns: 1fr 1fr; gap: 30px; border-top: 0; }
   .footer-inner { grid-template-columns: 1fr; padding-block: 30px; }
   .footer-inner > small { justify-self: start; }
+  .transaction-dialog dl div { grid-template-columns: 1fr; gap: 4px; }
 }

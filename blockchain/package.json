@@ -10,6 +10,8 @@
     "node": "hardhat node",
     "compile": "hardhat compile",
     "test": "hardhat test",
+    "test:frontend": "node --test ../frontend/tests/ynp-utils.test.js",
+    "test:all": "npm run test:frontend && npm test",
     "deploy:local": "hardhat run scripts/deploy.js --network localhost"
   },
   "devDependencies": {

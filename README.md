@@ -67,12 +67,29 @@ Import one account private key printed by the Hardhat node. Hardhat development 
 
 - Wallet detection and connection
 - Expected network verification
+- Transfer-time chain ID revalidation
 - Account and network change handling
 - Token balance and fixed total supply
+- Exact token unit formatting
 - Address and amount validation
 - ERC-20 transfers through MetaMask
-- Real Transfer event history
+- Real Transfer event history with block-range filters and pagination
+- Transaction detail dialog
+- Loading, success, disconnect, and failure states
+- Static HTML/CSS/JavaScript frontend with no Next.js dependency
 - No private-key collection or storage
+
+## Automated tests
+
+```powershell
+node --test frontend/tests/ynp-utils.test.js
+
+cd blockchain
+npm.cmd run compile
+npm.cmd test
+```
+
+From the `blockchain` directory, `npm.cmd run test:all` runs the frontend utility tests followed by the Hardhat suite.
 
 ## Test checklist
 

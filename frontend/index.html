@@ -122,6 +122,15 @@
             <div><span class="eyebrow">On-chain activity</span><h2>Transactions</h2></div>
             <button class="icon-button" id="refresh-history" type="button" title="Refresh transactions" aria-label="Refresh transactions">↻</button>
           </div>
+          <div class="history-controls">
+            <label for="history-range">Block range</label>
+            <select id="history-range">
+              <option value="500">Last 500 blocks</option>
+              <option value="2000">Last 2,000 blocks</option>
+              <option value="latest" selected>All available blocks</option>
+            </select>
+            <span id="history-summary" aria-live="polite"></span>
+          </div>
           <div class="history-table-wrap">
             <table>
               <thead><tr><th>Transfer</th><th>Amount</th><th>Transaction</th><th>Status</th></tr></thead>
@@ -129,6 +138,11 @@
                 <tr><td colspan="4"><div class="empty-state">Connect MetaMask to load Transfer events.</div></td></tr>
               </tbody>
             </table>
+          </div>
+          <div class="history-pagination">
+            <button class="button button-outline button-small" id="history-prev" type="button" disabled>Previous</button>
+            <span id="history-page">Page 1</span>
+            <button class="button button-outline button-small" id="history-next" type="button" disabled>Next</button>
           </div>
         </article>
       </section>
@@ -167,8 +181,19 @@
       </div>
     </footer>
 
+    <dialog class="transaction-dialog" id="transaction-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <div><span class="eyebrow">Local transaction</span><h2>Transaction details</h2></div>
+          <button class="icon-button" value="close" aria-label="Close transaction details">×</button>
+        </div>
+        <dl id="transaction-details"></dl>
+      </form>
+    </dialog>
+
     <script src="./config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+    <script src="./ynp-utils.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

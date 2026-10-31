@@ -44,4 +44,9 @@ describe("YNPTestToken", function () {
     await token.transfer(recipient.address, ethers.parseEther("500"));
     expect(await token.totalSupply()).to.equal(INITIAL_SUPPLY);
   });
+
+  it("does not expose an additional mint function", async function () {
+    const { token } = await deployToken();
+    expect(token.interface.getFunction("mint")).to.equal(null);
+  });
 });
